@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <script type="text/javascript">
+
+        window.onload = function(){
+            operando1 = document.getElementById("operando1")
+            operando2 = document.getElementById("operando2")
+            resul = document.getElementById("resultado")
+            error = document.getElementById("error")
+            op1 = 0.0
+            op2 = 0.1
+            
+
+        }
+        function comprobar(){
+                if(isNaN(parseFloat(operando1.value))){
+                    error.innerHTML = "Operando 1 no es un numero"
+                    resul.innerHTML = ""
+                    return false
+                }
+                op1 = parseFloat(operando1.value)
+                if(isNaN(parseFloat(operando2.value))){
+                    error.innerHTML = "Operando 2 no es un numero"
+                    resul.innerHTML = ""
+                    return false
+                }
+                op2 = parseFloat(operando2.value)
+
+                return true
+            }
+
+            function suma(){
+                if(comprobar()){
+                    error.innerHTML = ""
+                    resul.innerHTML = op1 + op2
+                }
+
+            }
+
+            function resta(){
+                if(comprobar()){
+                    error.innerHTML = ""
+                    resul.innerHTML = op1 - op2
+                }
+            }
+
+            function multiplicacion(){
+                if(comprobar()){
+                    error.innerHTML = ""
+                    resul.innerHTML = op1 * op2
+                }
+            }
+
+            function division(){
+                if(comprobar()){
+                    if(op2 != 0){
+                        error.innerHTML = ""
+                        resul.innerHTML = op1/op2
+                    }
+                    else{
+                        resul.innerHTML = ""
+                        error.innerHTML = "No se puede dividir por 0!"
+                    }
+
+                }
+            }
+    </script>
+
+    <span>Operando 1:</sapn> <input id="operando1" type="text"><br>
+    <span>Operando 2:</span> <input id="operando2" type="text"><br>
+    <p>Resultado: <span id="resultado"></span></p>
+    <p id="error"></p>
+
+    <button onclick="suma()">Suma</button>
+    <button onclick="resta()">Resta</button>
+    <button onclick="multiplicacion()">Multiplicacion</button>
+    <button onclick="division()">Division</button>
+</body>
