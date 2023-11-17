@@ -4,7 +4,7 @@ body {
     padding: 5px;
 }
 
-#header {
+header {
     /* TODO NO PERMITIR ELEMENTOS POR EL LADO IZQUIERDO */
     clear: left;
     /* TODO ancho 100% */
@@ -18,11 +18,11 @@ body {
     /* TODO COLOR BLANCO */
     color: white;
 }
-#header img { 
+header img { 
     padding: 1px 20px;
     vertical-align: middle; 
 }
-#nav {
+nav {
     /* TODO NO PERMITIR ELEMENTOS POR EL LADO IZQUIERDO */
     /* TODO ancho 100% */
     clear:left;
@@ -53,17 +53,17 @@ body {
     background-color: #005682;
 }
 
-#content {
+article {
     clear: left;
     width: 100%;
     /* TODO NO PERMITIR ELEMENTOS POR EL LADO IZQUIERDO */
     /* TODO ancho 100% */
 }
-#content p {
+article p {
     padding: 5px 10px;
     text-align: justify;
 }
-#footer {
+footer {
     /* TODO NO PERMITIR ELEMENTOS POR EL LADO IZQUIERDO */
     clear: left;
     /* TODO ancho 100% */

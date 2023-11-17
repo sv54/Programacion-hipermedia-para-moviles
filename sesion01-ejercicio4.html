@@ -6,39 +6,44 @@
 	<script type="text/javascript"><!--
 		window.onload = function() 
 		{
-			var canvas = // TODO OBTENER CANVAS USANDO SU ID 'myCanvas'
+			// TODO OBTENER CANVAS USANDO SU ID 'myCanvas'
+			
+			var canvas = document.getElementById('myCanvas')
 			if (!canvas || !canvas.getContext) {
 				return;
   			}
 
-  			var context = // TODO AQUIRIR EL CONTEXTO 2D DEL CANVAS
+  			var context = canvas.getContext('2d')// TODO AQUIRIR EL CONTEXTO 2D DEL CANVAS
   			if (!context) {
     			return;
   			}
 
-			context.fillStyle   = // TODO DEFINIR COLOR AZUL
-			context.strokeStyle = // TODO DEFINIR COLOR ROJO
-			context.lineWidth   = // TODO DEFINIR GROSOR
+			context.fillStyle   = '#0000ff'// TODO DEFINIR COLOR AZUL
+			context.strokeStyle = '#ff0000'// TODO DEFINIR COLOR ROJO
+			context.lineWidth   = 4// TODO DEFINIR GROSOR
 
 			// RECTÁNGULOS
 			// TODO DIBUJAR RECTÁNGULO RELLENO
+			context.fillRect(0,0,150,50)
 			// TODO DIBUJAR RECTÁNGULO USANDO BORDE
-
+			context.strokeRect(0,60,150,50)
 
 			// DIBUJAR PATH
-			context.  // TODO INICIAR TRAZO
-			context.moveTo( /* TODO COORDENADAS DEL PRIMER PUNTO */ );
-			context.lineTo( /* TODO COORDENADAS DEL SEGUNDO PUNTO */ );
-			context.lineTo( /* TODO COORDENADAS DEL TERCER PUNTO */ );
-			context.lineTo( /* TODO COORDENADAS DEL ÚLTIMO PUNTO */ );
+			context.beginPath()  // TODO INICIAR TRAZO
+			context.moveTo(160, 0);
+			context.lineTo( 270, 0);
+			context.lineTo(160,110);
+			context.lineTo(160,0);
 
-			context. // TODO RELLENAR TRAZO
-			context. // TODO CERRAR TRAZO
+			context.fill() // TODO RELLENAR TRAZO
+			context.closePath() // TODO CERRAR TRAZO
 		}
 	// --></script>
 </head>
 <body>
+	<canvas id="myCanvas" width="360" height="240">
 
+	</canvas>
 	<!-- TODO INSTANCIAR ELEMENTO CANVAS "myCanvas" -->
 
 </body>
