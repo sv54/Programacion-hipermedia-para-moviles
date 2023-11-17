@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button{
+            width: 50px;
+            height: 50px;
+            font-size: large;
+        }
+
+        #pantalla{
+            border: 1px solid black;
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+
+        window.onload = function(){
+            error = document.getElementById("error")
+            pantalla = document.getElementById("pantalla")
+            pantalla.innerHTML = ""
+            expr = ""
+
+        }
+        function limpiar(){
+            pantalla.innerHTML = ""
+        }
+
+        function setValue(valor){
+            if(pantalla.innerHTML == "ERROR"){
+                pantalla.innerHTML = ""
+            }
+            if(valor == "="){
+                calcular()
+            }
+            else{
+                pantalla.innerHTML = pantalla.innerHTML + valor
+                expr = pantalla.innerHTML
+            }
+
+        }
+
+        function calcular(){
+            if(expr == ""){
+                pantalla.innerHTML = "ERROR"
+            }
+            else{
+                try {
+                resul = eval( expr );
+                if(!isFinite(resul) || isNaN(resul)){
+                    pantalla.innerHTML = "ERROR"
+                }
+                else{
+                    pantalla.innerHTML = resul
+                }
+                } catch (e) {
+                    console.log(e)
+                    pantalla.innerHTML = "ERROR"
+                }
+            }
+        }
+    </script>
+
+    <table>
+        <tr>
+            <td colspan="3"><div id="pantalla"></div></td>
+            <td><button onclick="limpiar()">C</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="setValue(this.value)" value="7">7</button></td>
+            <td><button onclick="setValue(this.value)" value="8">8</button></td>
+            <td><button onclick="setValue(this.value)" value="9">9</button></td>
+            <td><button onclick="setValue(this.value)" value="/">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="setValue(this.value)" value="4">4</button></td>
+            <td><button onclick="setValue(this.value)" value="5">5</button></td>
+            <td><button onclick="setValue(this.value)" value="6">6</button></td>
+            <td><button onclick="setValue(this.value)" value="*">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="setValue(this.value)" value="1">1</button></td>
+            <td><button onclick="setValue(this.value)" value="2">2</button></td>
+            <td><button onclick="setValue(this.value)" value="3">3</button></td>
+            <td><button onclick="setValue(this.value)" value="-">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="setValue(this.value)" value="0">0</button></td>
+            <td><button onclick="setValue(this.value)" value=".">.</button></td>
+            <td><button onclick="setValue(this.value)" value="=">=</button></td>
+            <td><button onclick="setValue(this.value)" value="+">+</button></td>
+        </tr>
+    </table>
+    <span id="error"></span>
+
+</body>
