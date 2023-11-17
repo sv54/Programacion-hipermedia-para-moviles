@@ -8,7 +8,7 @@
 		margin-right:auto;  
 		height: 475px;
 		width: 475px;
-		background-image: /* TODO DEFINIR IMAGEN */
+		background-image: "imgs/stickynote.jpg";
 		background-repeat: no-repeat;
 	}  
 
@@ -41,7 +41,8 @@
 	<script type="text/javascript"><!--
 		window.onload = function() 
 		{
-			var texto = // TODO OBTENER ITEM 'savedNote'
+			// TODO OBTENER ITEM 'savedNote'
+			var texto = localStorage.getItem('nota')
 
 			if( !texto )
 			{
@@ -55,12 +56,14 @@
 		{
 			var texto = document.getElementById('nota').innerHTML;
 
+			localStorage.setItem('nota', texto)
 			// TODO GUARDAR texto EN 'savedNote'
 		}
 
 		function borrarNota() 
 		{
 			// TODO BORRAR CONTENIDO
+			localStorage.clear()
 
 			return false;
 		}

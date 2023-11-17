@@ -10,7 +10,8 @@
 		{
 			if (navigator.geolocation) 
 			{
-				// TODO OBTENER LA POSICIÓN ACTUAL, PASÁNDO COMO PARÁMETRO EL NOMBRE DE LA FUNCIÓN showPosition				
+				// TODO OBTENER LA POSICIÓN ACTUAL, PASÁNDO COMO PARÁMETRO EL NOMBRE DE LA FUNCIÓN showPosition			
+				navigator.geolocation.getCurrentPosition(showPosition)	
 			} else {
 				$('#nosoup').text("No funciona la Geolocalizaci&oacute;n");
 			}
