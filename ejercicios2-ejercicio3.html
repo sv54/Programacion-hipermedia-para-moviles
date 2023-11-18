@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .formulario {
+
+            background-color: #ccc;
+            width: 400px;
+            border: 2px solid silver;
+            padding: 30px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        body {
+            background-color: gray;
+        }
+
+        .textClass {
+            font-size:large;
+            margin-right: 10px;
+            display: flex;
+            justify-content: flex-end;
+            padding-left: 30px;
+
+        }
+        input{
+          width: 100%;  
+        }
+        .error{
+            font-size: small;
+            color: red;
+            margin-top: 10px;
+        }
+        button{
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px; 
+            background-color: #ebebeb;
+            box-shadow: none;
+            height: 40px;
+            width: 80px;
+            border-color: #ffc569;
+
+        }
+        button:active{
+            box-shadow: none;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        window.onload = function(){
+            user = document.getElementById("username")
+            pass = document.getElementById("password")
+            errorUser = document.getElementById("errorUser")
+            errorPass = document.getElementById("errorPassword")
+
+        }
+
+        function validar(){
+            errorPass.innerHTML = ""
+            errorUser.innerHTML = ""
+            validado = true
+            if(user.value == ""){
+                errorUser.innerHTML = "El campo usuario es requerido"
+                validado = false
+            }
+            if(pass.value == ""){
+                errorPass.innerHTML = "El campo contraseña es requerido"
+                validado = false
+
+            }
+            if(user.value.length < 3 && user.value.length > 0){
+                errorUser.innerHTML = "El usuario debe tener al menos 3 caracteres"
+                validado = false
+
+            }
+            
+            if(pass.value.length < 3 && pass.value.length > 0){
+                errorPass.innerHTML = "El password debe tener al menos 3 caracteres"
+                validado = false
+
+            }
+            if(validado){
+                errorPass.innerHTML = ""
+                errorUser.innerHTML = ""
+                alert("Validacion correcta!")
+            }
+        }
+    </script>
+
+    <article>
+        <div class="formulario">
+            <table cellspacing="8px">
+                <tr>
+                    <td>
+                        <span class="textClass">Usuario: </span>
+                    </td>
+                    <td>
+                        <input id="username" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <span id="errorUser" class="error"></span>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="textClass">Contraseña: </span>
+                    </td>
+                    <td>
+                        <input id="password" type="password">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>
+                        <span id="errorPassword" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button onclick="validar()">Entrar</button></td>
+                </tr>
+            </table>
+        </div>
+    </article>
+
+</body>
+
+</html>
