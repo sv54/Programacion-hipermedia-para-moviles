@@ -28,7 +28,7 @@
         }
 
         .naranja {
-            height: 100px;
+            height: 50px;
             background-color: orange;
             border: 1px solid black;
         }
@@ -37,6 +37,23 @@
             height: 50px;
             background-color: violet;
             border: 1px solid black;
+        }
+        .aqua{
+            height: 50px;
+            background-color: aqua;
+            border: 1px solid black;
+        }
+        .gris{
+            height: 50px;
+            background-color: gray;
+            border: 1px solid black;
+            
+        }
+        .otroAzul{
+            height: 50px;
+            background-color: cadetblue;
+            border: 1px solid black;
+
         }
     </style>
 </head>
@@ -47,7 +64,50 @@
         crossorigin="anonymous"></script>
 
     <div class="container">
+        <div class="row">
+            <div class="col verde">
+                Header
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 offset-md-3 col-sm-3 col-6 otroAzul">1</div>
+            <div class="col-md-3 col-sm-3 col-6 otroAzul">2</div>
+            <div class="w-100 d-none d-md-block"></div>
+            <div class="col-md-3 col-sm-3 col-6 otroAzul">3</div>
+            <div class="col-md-3 offset-md-6 col-sm-3 col-6 otroAzul">4</div>
+        </div>
+
+        <div class="row">
+            <div class="col d-md-none d-sm-inline d-none aqua">Tablet</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 order-md-4 col-sm-3 col-6 gris">a</div>
+            <div class="col-md-3 order-md-3 col-sm-3 col-6 gris">b</div>
+            <div class="col-md-3 order-md-2 col-sm-3 col-6 gris">c</div>
+            <div class="col-md-3 order-md-1 col-sm-3 col-6 gris">d</div>
+        </div>
+
+        <div class="row">
+            <div class="col d-none d-md-inline aqua">Desktop</div>
+        </div>
         
+        <div class="row">
+            <div class="col d-sm-none aqua">Mobile</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 offset-md-3 col order-sm-2 order-md-1 d-none d-sm-inline naranja">:(</div>
+            <div class="col-md-3 col order-sm-1 order-md-2 naranja">:D</div>
+        </div>
+
+
+        <div class="row">
+            <div class="col d-none d-sm-inline verde">
+                Footer
+            </div>
+        </div>
     </div>
 </body>
 
