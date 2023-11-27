@@ -1,0 +1,38 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+.img-fixed{
+    width: 100%;
+    height: 150px;
+    object-fit:cover;
+}
+.img-cover{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+@media (max-width: 576px){
+    .img-fixed{
+        height: auto;
+    }
+    
+}
+
+@media (min-width: 992px){
+    .img-fixed{
+        height: 250px;
+    }
+}
+
+@media (min-width: 1200px){
+    .img-fixed{
+        height: 400px;
+    }
+}

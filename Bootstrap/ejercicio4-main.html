@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recetas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="custom.css">
+    <script src="https://kit.fontawesome.com/c62e85287b.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-dark navbar-expand-md bg-primary justify-content-center">
+        <div class="container">
+            <a class="navbar-brand" href="ejercicio4-main.html">
+                <img src="./ej4Resources/icono.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Recetas Gourmet
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+                  <li class="nav-item">
+                    <a class="nav-link" href="ejercicio4-crearReceta.html"> Crear Receta </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Interaccion
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Forum</a></li>
+                      <li><a class="dropdown-item" href="#">Mensajes</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Reportar</a></li>
+                    </ul>
+                  </li>
+                </ul>
+          
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-warning" type="submit">Search</button>
+                </form>
+          
+              </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="ej4Resources/carousel1.jpg" class="d-block w-100 img-cover" alt="...">
+                <div class="carousel-caption d-md-block">
+                    <h5>Explora nuestras recetas!</h5>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="ej4Resources/carousel2.jpg" class="d-block w-100 img-cover" alt="...">
+                <div class="carousel-caption d-block">
+                    <h5>Recetas con mejores puntuaciones!</h5>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="ej4Resources/carousel3.jpg" class="d-block w-100 img-cover" alt="...">
+                <div class="carousel-caption d-md-block">
+                    <h5>Comida mejor que en restaurante!</h5>
+                </div>
+            </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    
+
+        <div class="row mt-4">
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <div class="card">
+                    <img src="./ej4Resources/ensaladaVerano.jpg" class="card-img-top img-fixed"  >
+                    <div class="card-body">
+                        <h5 class="card-title">Ensalada de Verano</h5>
+                        <p class="card-text">Deliciosa ensalada fresca con tomates, aguacate y vinagreta balsámica.</p>
+                    </div>
+                    <div class="text-center mb-2">
+                        <a href="./ejercicio4-detalle.html" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Ver Receta</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <div class="card">
+                    <img src="./ej4Resources/polloCurry.jpg" class="card-img-top img-fixed"  >
+                    <div class="card-body">
+                        <h5 class="card-title">Pollo al Curry</h5>
+                        <p class="card-text">Jugosos trozos de pollo cocinados en una cremosa salsa de curry y coco.</p>
+                    </div>
+                    <div class="text-center mb-2">
+                        <a href="./ejercicio4-detalle.html" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Ver Receta</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <div class="card">
+                    <img src="./ej4Resources/pastaPesto.jpg" class="card-img-top img-fixed"  >
+                    <div class="card-body">
+                        <h5 class="card-title">Pasta con Pesto</h5>
+                        <p class="card-text">Pasta al dente con pesto casero de albahaca, ajo y piñones</p>
+                    </div>
+                    <div class="text-center mb-2">
+                        <a href="./ejercicio4-detalle.html" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Ver Receta</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <div class="card">
+                    <img src="./ej4Resources/sopaLentejas.jpg" class="card-img-top img-fixed"  >
+                    <div class="card-body">
+                        <h5 class="card-title">Sopa de Lentejas</h5>
+                        <p class="card-text">Sopa reconfortante con lentejas, zanahorias y apio de caldo aromatico</p>
+                    </div>
+                    <div class="text-center mb-2">
+                        <a href="./ejercicio4-detalle.html" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Ver Receta</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <div class="card">
+                    <img src="./ej4Resources/tacosPescado.jpg" class="card-img-top img-fixed"  >
+                    <div class="card-body">
+                        <h5 class="card-title">Tacos de Pescado</h5>
+                        <p class="card-text">Tacos frescos con pescado marinado, repollo rallado y salsa citrica.</p>
+                    </div>
+                    <div class="text-center mb-2">
+                        <a href="./ejercicio4-detalle.html" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Ver Receta</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <div class="card">
+                    <img src="./ej4Resources/risotto.jpg" class="card-img-top img-fixed"  >
+                    <div class="card-body">
+                        <h5 class="card-title">Risotto de Champiñones</h5>
+                        <p class="card-text">Arroz cremoso cocido lentamente con champiñones, caldo de verduras y queso parmesano.</p>
+                    </div>
+                    <div class="text-center mb-2">
+                        <a href="./ejercicio4-detalle.html" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Ver Receta</a>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap (jQuery y Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>
+
