@@ -39,6 +39,7 @@ body {
 }
 .navElement a {
     text-decoration: none;
+    color: black;
 }
 .navElement:hover {
     /* TODO COLOR DE FONDO #005682; */
