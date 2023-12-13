@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="videoclub"></ion-back-button>
+        </ion-buttons>
+        <ion-title id="tituloPagina"></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-card>
+        <ion-img [src]="urlImg"></ion-img>
+        <ion-card-header>
+            <ion-card-title id="tituloCard"></ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p><b>Director: </b><span id="director">{{pelicula.director}}</span></p>
+            <p><b>Año: </b><span id="anyo">{{pelicula.year}}</span></p>
+            <p><b>Sinopsis: </b><span id="sinopsis">{{pelicula.synopsis}}</span></p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -25,7 +25,7 @@
             Para acceder a la gestión del videoclub pulsa el siguente boton:
         </ion-card-subtitle>
         <ion-card-content>
-            <ion-button fill="clear" color="dark" style="text-transform:none">
+            <ion-button [routerLink]="['/videoclub']" fill="clear" color="dark" style="text-transform:none">
                 <ion-icon name="videocam-sharp" slot="start"></ion-icon>
                 <p> Acceso a iVideoclub</p>
             </ion-button>
@@ -41,7 +41,7 @@
             Informacion sobre el autor
         </ion-card-title>
         <ion-card-content>
-            <ion-button fill="clear" color="dark" style="text-transform:none">
+            <ion-button [routerLink]="['/autor']" fill="clear" color="dark" style="text-transform:none">
                 <ion-icon name="person-sharp" slot="start"></ion-icon>
                 <p>Consulta Informacion</p>
             </ion-button>

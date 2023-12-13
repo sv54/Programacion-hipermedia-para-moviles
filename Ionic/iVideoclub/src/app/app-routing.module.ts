@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'videoclub',
     loadChildren: () => import('./videoclub/videoclub.module').then( m => m.VideoclubPageModule)
   },
+  {
+    path: 'detalle/:id',
+    loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
+  },
 ];
 
 @NgModule({

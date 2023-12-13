@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <ion-title>iVideoclub</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,12 +10,13 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
+
       <ion-title size="large">iVideoclub</ion-title>
     </ion-toolbar>
   </ion-header>
   
   <ion-list>
-    <ion-item button detail>
+    <ion-item button detail (click)="verPaginaDetalle(0)">
         <ion-thumbnail slot="start">
             <ion-img src="assets/posters/el_padrino.jpg"></ion-img>
         </ion-thumbnail>
@@ -22,7 +26,7 @@
             <p><b>Año: </b>1972</p>
         </ion-label>
     </ion-item>
-    <ion-item button detail>
+    <ion-item button detail (click)="verPaginaDetalle(1)">
         <ion-thumbnail slot="start">
             <ion-img src="assets/posters/el_padrino_2.jpg"></ion-img>
         </ion-thumbnail>
@@ -32,7 +36,7 @@
             <p><b>Año: </b>1974</p>
         </ion-label>
     </ion-item>
-    <ion-item button detail>
+    <ion-item button detail (click)="verPaginaDetalle(2)">
         <ion-thumbnail slot="start">
             <ion-img src="assets/posters/la_lista_de_schindler.jpg"></ion-img>
         </ion-thumbnail>
@@ -42,7 +46,7 @@
             <p><b>Año: </b>1993</p>
         </ion-label>
     </ion-item>
-    <ion-item button detail>
+    <ion-item button detail (click)="verPaginaDetalle(3)">
         <ion-thumbnail slot="start">
             <ion-img src="assets/posters/pulp_fiction.jpg"></ion-img>
         </ion-thumbnail>
@@ -52,7 +56,7 @@
             <p><b>Año: </b>1994</p>
         </ion-label>
     </ion-item>
-    <ion-item button detail>
+    <ion-item button detail (click)="verPaginaDetalle(4)">
         <ion-thumbnail slot="start">
             <ion-img src="assets/posters/cadena_perpetua.jpg"></ion-img>
         </ion-thumbnail>
