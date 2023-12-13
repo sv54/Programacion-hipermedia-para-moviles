@@ -13,25 +13,11 @@
             <ion-title size="large">Currículum</ion-title>
         </ion-toolbar>
     </ion-header>
-    <ion-list>
-        <ion-item>
-            <ion-label>
-                <h2>2017-2019</h2>
-                <p>Estudiando</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item>
-            <ion-label>
-                <h2>2019-2023</h2>
-                <p>Estudiando Grado</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item>
-            <ion-label>
-                <h2>2023-actualidad</h2>
-                <p>Sigo studiando :(</p>
+    <ion-list *ngIf="listaTrabajos">
+        <ion-item *ngFor="let trabajo of listaTrabajos">
+            <ion-label class="ion-text-wrap">
+                <h2>{{trabajo.fecha}}</h2>
+                <p>{{trabajo.desc}}</p>
             </ion-label>
         </ion-item>
     </ion-list>

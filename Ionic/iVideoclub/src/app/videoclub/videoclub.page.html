@@ -15,55 +15,15 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-list>
-    <ion-item button detail (click)="verPaginaDetalle(0)">
+  <ion-list *ngIf="listaPeliculas">
+    <ion-item *ngFor="let pelicula of listaPeliculas; index as id" (click)="verPaginaDetalle(id)" detail>
         <ion-thumbnail slot="start">
-            <ion-img src="assets/posters/el_padrino.jpg"></ion-img>
+            <ion-img src="../../assets/posters/{{pelicula.poster}}" alt="{{pelicula.title}}"></ion-img>
         </ion-thumbnail>
         <ion-label>
-            <h2>El padrino</h2>
-            <p><b>Director: </b>Francis Ford Coppola </p>
-            <p><b>Año: </b>1972</p>
-        </ion-label>
-    </ion-item>
-    <ion-item button detail (click)="verPaginaDetalle(1)">
-        <ion-thumbnail slot="start">
-            <ion-img src="assets/posters/el_padrino_2.jpg"></ion-img>
-        </ion-thumbnail>
-        <ion-label>
-            <h2>El Padrino. Parte II</h2>
-            <p><b>Director: </b>Francis Ford Coppola </p>
-            <p><b>Año: </b>1974</p>
-        </ion-label>
-    </ion-item>
-    <ion-item button detail (click)="verPaginaDetalle(2)">
-        <ion-thumbnail slot="start">
-            <ion-img src="assets/posters/la_lista_de_schindler.jpg"></ion-img>
-        </ion-thumbnail>
-        <ion-label>
-            <h2>La lista de Schindler</h2>
-            <p><b>Director: </b>Steven Spielberg  </p>
-            <p><b>Año: </b>1993</p>
-        </ion-label>
-    </ion-item>
-    <ion-item button detail (click)="verPaginaDetalle(3)">
-        <ion-thumbnail slot="start">
-            <ion-img src="assets/posters/pulp_fiction.jpg"></ion-img>
-        </ion-thumbnail>
-        <ion-label>
-            <h2>Pulp Fiction</h2>
-            <p><b>Director: </b>Quentin Tarantino</p>
-            <p><b>Año: </b>1994</p>
-        </ion-label>
-    </ion-item>
-    <ion-item button detail (click)="verPaginaDetalle(4)">
-        <ion-thumbnail slot="start">
-            <ion-img src="assets/posters/cadena_perpetua.jpg"></ion-img>
-        </ion-thumbnail>
-        <ion-label>
-            <h2>Cadena perpetua</h2>
-            <p><b>Director: </b>Frank Darabont</p>
-            <p><b>Año: </b>1994</p>
+            <h2>{{pelicula.title}}</h2>
+            <p><b>Director: </b>{{pelicula.director}}</p>
+            <p><b>Año: </b>{{pelicula.year}}</p>
         </ion-label>
     </ion-item>
 </ion-list>

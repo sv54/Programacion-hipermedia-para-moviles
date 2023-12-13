@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import * as moviesData from '../../assets/lista_peliculas.json';
+import { PeliculasService } from '../peliculas.service';
+
 
 @Component({
     selector: 'app-detalle',
@@ -9,30 +10,35 @@ import * as moviesData from '../../assets/lista_peliculas.json';
 })
 export class DetallePage implements OnInit {
 
-    movies: any[] = (moviesData as any).default;
 
-    pelicula!: {
+    pelicula: {
         title: string;
         year: string;
         director: string;
         poster: string;
         synopsis: string;
-    };
-
-    urlImg: String = ""
+    } | undefined;
 
 
-    constructor(private activatedRoute: ActivatedRoute) { }
+    constructor(private activatedRoute: ActivatedRoute, private servicioPeliculas: PeliculasService) { }
 
     ngOnInit() {
         const id = this.activatedRoute.snapshot.paramMap.get('id');
         if (id != null) {
             const idInt = parseInt(id, 10)
-            this.pelicula = this.movies[idInt]
-            this.urlImg = "assets/posters/" + this.pelicula.poster
-            console.log(this.urlImg)
+            this.pelicula = this.servicioPeliculas.getPelicula(idInt)
+        }
+        else{
+            this.pelicula={
+                title: "",
+                year: "",
+                director: "",
+                poster: "",
+                synopsis: ""
+            }
         }
 
     }
+
 
 }
