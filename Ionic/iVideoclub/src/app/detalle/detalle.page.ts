@@ -17,7 +17,13 @@ export class DetallePage implements OnInit {
         director: string;
         poster: string;
         synopsis: string;
-    } | undefined;
+    } = {
+        title: "",
+        year: "",
+        director: "",
+        poster: "",
+        synopsis: ""
+    };
 
 
     constructor(private activatedRoute: ActivatedRoute, private servicioPeliculas: PeliculasService) { }
@@ -27,15 +33,6 @@ export class DetallePage implements OnInit {
         if (id != null) {
             const idInt = parseInt(id, 10)
             this.pelicula = this.servicioPeliculas.getPelicula(idInt)
-        }
-        else{
-            this.pelicula={
-                title: "",
-                year: "",
-                director: "",
-                poster: "",
-                synopsis: ""
-            }
         }
 
     }
