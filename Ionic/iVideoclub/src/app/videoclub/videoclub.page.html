@@ -1,30 +1,62 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-        <ion-back-button defaultHref="home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>iVideoclub</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="primary">
+            <ion-button *ngIf="modoLista === true" (click)="cambiarVista()">
+                <ion-icon slot="icon-only" name="apps-sharp"></ion-icon>
+            </ion-button>
+            <ion-button *ngIf="modoLista === false" (click)="cambiarVista()">
+                <ion-icon slot="icon-only" name="reorder-four-sharp"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>iVideoclub</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">iVideoclub</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <div *ngIf="listaPeliculas && listaPeliculas.length>0; else emptyList">
+        <ion-list *ngIf="modoLista === true; else modoGrid">
+            <ion-item *ngFor="let pelicula of listaPeliculas; index as id" (click)="verPaginaDetalle(id)" detail>
+                <ion-thumbnail slot="start">
+                    <ion-img src="../../assets/posters/{{pelicula.poster}}" alt="{{pelicula.title}}"></ion-img>
+                </ion-thumbnail>
+                <ion-label>
+                    <h2>{{pelicula.title}}</h2>
+                    <p><b>Director: </b>{{pelicula.director}}</p>
+                    <p><b>Año: </b>{{pelicula.year}}</p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+        <ng-template #modoGrid>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size-md="3" size-sm="4" size="6" *ngFor="let pelicula of listaPeliculas; index as id"
+                        (click)="verPaginaDetalle(id)" detail>
+                        <ion-img src="../../assets/posters/{{pelicula.poster}}"></ion-img>
+                        <ion-label>
+                            <h2>{{pelicula.title}}</h2>
+                            <p><b>Director: </b>{{pelicula.director}}</p>
+                            <p><b>Año: </b>{{pelicula.year}}</p>
+                        </ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ng-template>
+    </div>
+    <ng-template #emptyList>
+        <ion-card>
+            <ion-card-content class="ion-text-center">
+                <p>La lista esta vacia</p>
+            </ion-card-content>
+        </ion-card>
+    </ng-template>
 
-      <ion-title size="large">iVideoclub</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-list *ngIf="listaPeliculas">
-    <ion-item *ngFor="let pelicula of listaPeliculas; index as id" (click)="verPaginaDetalle(id)" detail>
-        <ion-thumbnail slot="start">
-            <ion-img src="../../assets/posters/{{pelicula.poster}}" alt="{{pelicula.title}}"></ion-img>
-        </ion-thumbnail>
-        <ion-label>
-            <h2>{{pelicula.title}}</h2>
-            <p><b>Director: </b>{{pelicula.director}}</p>
-            <p><b>Año: </b>{{pelicula.year}}</p>
-        </ion-label>
-    </ion-item>
-</ion-list>
+
 </ion-content>
