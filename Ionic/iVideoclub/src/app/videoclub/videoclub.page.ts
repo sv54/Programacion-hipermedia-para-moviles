@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { PeliculasService } from '../peliculas.service';
-
+// import { PeliculasService } from '../peliculas.service';
+import { PeliculasAPIService } from '../peliculas-api.service';
 
 @Component({
     selector: 'app-videoclub',
@@ -12,16 +12,26 @@ export class VideoclubPage implements OnInit {
 
     modoLista = true
 
-    listaPeliculas: any[]
-    constructor(private router: Router, private peliculasServicio: PeliculasService) {
-        this.listaPeliculas = peliculasServicio.getPeliculas()
+    listaPeliculas: any[] = []
+    constructor(private router: Router, private peliculasAPIService: PeliculasAPIService) {
+        //this.listaPeliculas = peliculasServicio.getPeliculas()
+        peliculasAPIService.getPeliculas().subscribe(
+            result => {
+                this.listaPeliculas = result;
+            },
+            err => {
+                console.log(err);
+            }
+        );
     }
+
+
 
     verPaginaDetalle(id: Number): void {
         this.router.navigate(['/detalle', id]);
     }
 
-    cambiarVista(){
+    cambiarVista() {
         this.modoLista = !this.modoLista
     }
 
@@ -30,26 +40,26 @@ export class VideoclubPage implements OnInit {
         console.log('pagina videoclub cargada');
     }
 
-    ionViewDidEnter() {
-        console.log('ionViewDidEnter videoclub page');
-    }
+    // ionViewDidEnter() {
+    //     console.log('ionViewDidEnter videoclub page');
+    // }
 
-    ionViewWillEnter() {
-        console.log('ionViewWillEnter videoclub page');
-    }
+    // ionViewWillEnter() {
+    //     console.log('ionViewWillEnter videoclub page');
+    // }
 
 
-    ionViewWillLeave() {
-        console.log('ionViewWillLeave videoclub page');
+    // ionViewWillLeave() {
+    //     console.log('ionViewWillLeave videoclub page');
 
-    }
+    // }
 
-    ionViewDidLeave() {
-        console.log('ionViewDidLeave videoclub page');
+    // ionViewDidLeave() {
+    //     console.log('ionViewDidLeave videoclub page');
 
-    }
+    // }
 
-    ngOnDestroy() {
-        console.log('ngOnDestroy videoclub page');
-    }
+    // ngOnDestroy() {
+    //     console.log('ngOnDestroy videoclub page');
+    // }
 }

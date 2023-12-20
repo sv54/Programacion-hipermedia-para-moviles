@@ -3,20 +3,20 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref="videoclub"></ion-back-button>
         </ion-buttons>
-        <ion-title id="tituloPagina">{{pelicula.title}}</ion-title>
+        <ion-title id="tituloPagina">{{pelicula?.title}}</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
     <ion-card *ngIf="pelicula">
-        <ion-img src="../../assets/posters/{{pelicula.poster}}"></ion-img>
+        <ion-img src="{{pelicula?.poster}}"></ion-img>
         <ion-card-header>
-            <ion-card-title id="tituloCard"></ion-card-title>
+            <ion-card-title id="tituloCard">{{pelicula?.title}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-            <p><b>Director: </b>{{pelicula.director}}</p>
-            <p><b>Año: </b>{{pelicula.year}}</p>
-            <p><b>Sinopsis: </b>{{pelicula.synopsis}}</p>
+            <p><b>Director: </b>{{pelicula?.director}}</p>
+            <p><b>Año: </b>{{pelicula?.year}}</p>
+            <p><b>Sinopsis: </b>{{pelicula?.synopsis}}</p>
         </ion-card-content>
     </ion-card>
 </ion-content>
