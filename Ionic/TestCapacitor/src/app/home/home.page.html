@@ -1,20 +1,100 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+
+        <ion-title>
+            Test Capacitor
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Blank</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card>
+        <ion-card-header><ion-card-title>Capacitor Info</ion-card-title></ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                    <p>Platform Name: {{ptfName}}</p>
+                </ion-item>
+                <ion-item>
+                    <p>Native platform?: {{isNative}}</p>
+                </ion-item>
+                <ion-item>
+                    <p>Camera Available? {{isCamaraAvailable}}</p>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+
+    <ion-card>
+        <ion-card-header><ion-card-title>Device Info</ion-card-title></ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                    <p>Name: {{deviceInfo?.name}}</p>
+                </ion-item>
+                <ion-item>
+                    <p>Operating System: {{deviceInfo?.operatingSystem}}</p>
+                </ion-item>
+                <ion-item>
+                    <p>OS version: {{deviceInfo?.osVersion}}</p>
+                </ion-item>
+
+                <ion-item>
+                    <p>Manufacturer: {{deviceInfo?.manufacturer}}</p>
+                </ion-item>
+                <ion-item>
+                    <p>Is virtual? {{deviceInfo?.isVirtual}}</p>
+                </ion-item>
+                <ion-item>
+                    <p>UUID: {{deviceId?.identifier}}</p>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header><ion-card-title>Battery Info</ion-card-title></ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                    <p>Battery Level: {{battery?.batteryLevel}}</p>
+                </ion-item>
+                <ion-item>
+                    <p>Is charging? {{battery?.isCharging}}</p>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header><ion-card-title>Network Info</ion-card-title></ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                    <p>Is Connected? {{networkIsConnected}}</p>
+                </ion-item>
+                <ion-item>
+                    <p>Connection Type: {{netConnectionType}}</p>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header><ion-card-title>Events Log</ion-card-title></ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item *ngFor="let evento of events">
+                    {{ evento }}
+                  </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
