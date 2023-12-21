@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 
 import { Capacitor } from '@capacitor/core';
 import { BatteryInfo, Device, DeviceId, DeviceInfo } from '@capacitor/device';
 import { ConnectionType, Network } from '@capacitor/network';
 
-
 import { Platform } from '@ionic/angular';
 import { App } from '@capacitor/app';
+import { Geolocation, Position } from '@capacitor/geolocation';
+
 
 @Component({
     selector: 'app-home',
@@ -28,7 +29,12 @@ export class HomePage implements OnInit {
 
     events: string[] = []
 
-    constructor(private platform: Platform) {
+    lastStatus: String = ''
+
+    coordinates: Position | undefined
+
+
+    constructor(private platform: Platform, private ngZone: NgZone) {
         this.platform.backButton.subscribeWithPriority(-1, () => {
             console.log("app exit")
             App.exitApp();
@@ -44,25 +50,34 @@ export class HomePage implements OnInit {
             this.events.unshift(isActive ? "onStart" : "onStop");
         });
 
-        Device.getId().then(result => { this.deviceId = result; })
-        Device.getInfo().then(result => { this.deviceInfo = result; })
-        Device.getBatteryInfo().then(result => { this.battery = result; })
-
         Network.getStatus().then(status => {
-            this.networkIsConnected = status.connected;
-            this.netConnectionType = status.connectionType;
+            this.ngZone.run(() => {
+                this.networkIsConnected = status.connected;
+                this.netConnectionType = status.connectionType;
+            });
+        });
+
+        Device.getId().then((result: any) => { this.deviceId = result; })
+        Device.getInfo().then((result: any) => { this.deviceInfo = result; })
+        Device.getBatteryInfo().then((result: any) => { this.battery = result; })
+
+        Network.addListener('networkStatusChange', status => {
+            this.ngZone.run(() => {
+                if (this.lastStatus != JSON.stringify(status.connectionType)) {
+                    this.lastStatus = JSON.stringify(status.connectionType)
+                    this.events.unshift(`Cambio de estado: ` + JSON.stringify(status.connectionType));
+                }
+                this.networkIsConnected = status.connected;
+                this.netConnectionType = status.connectionType;
+            });
 
         });
-        // Network.addListener('networkStatusChange', status => {
-        //     this.netConnectionType = status.connectionType;
-        // });
-        // Network.removeAllListeners();
-
-
     }
-    ngOnInit(): void {
+
+    async ngOnInit() {
         console.log("onInit")
-        //throw new Error('Method not implemented.');
+        this.coordinates = await Geolocation.getCurrentPosition();
+
     }
 
 }

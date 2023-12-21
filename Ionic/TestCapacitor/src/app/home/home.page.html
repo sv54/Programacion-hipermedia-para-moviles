@@ -88,12 +88,27 @@
     </ion-card>
 
     <ion-card>
+        <ion-card-header><ion-card-title>Geoposicion</ion-card-title></ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                    <p>latitude: {{coordinates?.coords?.latitude}}</p>
+                </ion-item> <ion-item>
+                    <p>longitude: {{coordinates?.coords?.longitude}}</p>
+                </ion-item> <ion-item>
+                    <p>altitude: {{coordinates?.coords?.altitude}}</p>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
         <ion-card-header><ion-card-title>Events Log</ion-card-title></ion-card-header>
         <ion-card-content>
             <ion-list>
                 <ion-item *ngFor="let evento of events">
                     {{ evento }}
-                  </ion-item>
+                </ion-item>
             </ion-list>
         </ion-card-content>
     </ion-card>
