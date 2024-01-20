@@ -15,18 +15,25 @@ use App\Http\Controllers\CatalogController;
 |
 */
 
-Route::get('/', [HomeController::class, 'getHome']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
-Route::get('login', function () {
-    return view('auth.login');
-});
-Route::get('logout', function () {
-    echo "Logout Usuario";
-    //return view('welcome');
-});
+// Route::get('login', function () {
+//     return view('auth.login');
+// });
+// Route::get('logout', function () {
+//     echo "Logout Usuario";
+//     //return view('welcome');
+// });
 
 Route::get('catalog', [CatalogController::class, 'getIndex']);
-Route::get('catalog/show/{id}', [CatalogController::class, 'getShow']);
-Route::get('catalog/create', [CatalogController::class, 'getCreate']);
-Route::get('catalog/edit/{id}', [CatalogController::class, 'getEdit']);
 
+
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('catalog/show/{id}', [CatalogController::class, 'getShow']);
+    Route::get('catalog/create', [CatalogController::class, 'getCreate']);
+    Route::get('catalog/edit/{id}', [CatalogController::class, 'getEdit']);
+});
