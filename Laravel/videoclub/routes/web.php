@@ -35,5 +35,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => 'auth'], function () {
     Route::get('catalog/show/{id}', [CatalogController::class, 'getShow']);
     Route::get('catalog/create', [CatalogController::class, 'getCreate']);
+    Route::post('catalog/create', [CatalogController::class, 'postCreate']);
     Route::get('catalog/edit/{id}', [CatalogController::class, 'getEdit']);
+    Route::put('catalog/edit/{id}', [CatalogController::class, 'putEdit']);
+
+    Route::put('/catalog/rent/{id}', [CatalogController::class,'putRent']);
+    Route::put('/catalog/return/{id}', [CatalogController::class,'putReturn']);
+    Route::delete('/catalog/delete/{id}', [CatalogController::class,'deleteMovie']);
+
 });

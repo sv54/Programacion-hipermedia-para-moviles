@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use App\Models\Movie;
 use Illuminate\Support\Facades\DB;
@@ -180,6 +181,12 @@ class DatabaseSeeder extends Seeder
     {
         self::seedCatalog();
         $this->command->info('Tabla catálogo inicializada con datos!');
+
+        $u = new User();
+        $u->name = 'serhii';
+        $u->email = 'serhii@g.com';
+        $u->password = bcrypt("12345");
+        $u->save();
     }
 
     public function seedCatalog()
