@@ -182,11 +182,8 @@ class DatabaseSeeder extends Seeder
         self::seedCatalog();
         $this->command->info('Tabla catálogo inicializada con datos!');
 
-        $u = new User();
-        $u->name = 'serhii';
-        $u->email = 'serhii@g.com';
-        $u->password = bcrypt("12345");
-        $u->save();
+        self::seedUsers();
+        $this->command->info('Tabla de usuarios inicializada con datos!');
     }
 
     public function seedCatalog()
@@ -203,5 +200,35 @@ class DatabaseSeeder extends Seeder
             $p->synopsis = $pelicula['synopsis'];
             $p->save();
         }
+    }
+
+    public function seedUsers(){
+        DB::table('users')->delete();
+
+        $u = new User();
+        $u->name = 'Serhii';
+        $u->email = 'serhii@mail.com';
+        $u->password = bcrypt('12345');
+        $u->save();
+        
+        $u = new User();
+        $u->name = 'Pablo';
+        $u->email = 'pablo@mail.com';
+        $u->password = bcrypt('12345');
+        $u->save();
+        
+        $u = new User();
+        $u->name = 'Daniel';
+        $u->email = 'daniel@mail.com';
+        $u->password = bcrypt('12345');
+        $u->save();
+        
+        $u = new User();
+        $u->name = 'Lukas';
+        $u->email = 'lukas@mail.com';
+        $u->password = bcrypt('12345');
+        $u->save();
+        
+        
     }
 }
