@@ -18,8 +18,8 @@ use App\Http\Controllers\APICatalogController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('v1/catalog', [APICatalogController::class, 'index'])->withoutMiddleware(['auth.basic.once']);;
-Route::get('v1/catalog/{id}', 'APICatalogController@show')->withoutMiddleware(['auth.basic.once']);;
+Route::get('v1/catalog', [APICatalogController::class, 'index']);
+Route::get('v1/catalog/{id}', 'APICatalogController@show');
 
 Route::resource('v1/catalog', APICatalogController::class)->except(['index', 'show'])
     ->middleware('auth.basic.once');
