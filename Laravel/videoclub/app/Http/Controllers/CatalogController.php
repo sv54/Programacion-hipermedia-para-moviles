@@ -38,7 +38,7 @@ class CatalogController extends Controller
         $pelicula->synopsis = $request->synopsis;
         $pelicula->year = $request->year;
         $pelicula->director = $request->director;
-        $pelicula->poster = $request->hasFile('poster');
+        $pelicula->poster = $request->poster;
         $pelicula->rented = false;
         $pelicula->save();
 
@@ -54,7 +54,7 @@ class CatalogController extends Controller
         $pelicula->synopsis = $request->synopsis;
         $pelicula->year = $request->year;
         $pelicula->director = $request->director;
-        $pelicula->poster = $request->hasFile('poster');
+        $pelicula->poster = $request->poster;
         $pelicula->save();
         Alert::success('', 'La película se ha modificado correctamente');
 

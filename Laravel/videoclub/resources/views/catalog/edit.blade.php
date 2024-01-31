@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <label for="poster">Poster</label>
-                            <input value="{{$pelicula->poster}}" type="file" accept="image/png, image/jpeg" class="form-control" id="poster" name="poster" required>
+                            <input value="{{$pelicula->poster}}" type="text" class="form-control" id="poster" name="poster" required>
                         </div>
 
                         <div class="form-group">

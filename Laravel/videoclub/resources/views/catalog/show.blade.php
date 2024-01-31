@@ -4,7 +4,7 @@
     <div class="row">
 
         <div class="col-sm-4">
-            <img src="{{ $pelicula->poster }}" alt="Portada de la película">
+            <img src="{{ $pelicula->poster }}" alt="Portada de la película" style="max-width:100%;">
 
         </div>
         <div class="col-sm-8">
@@ -17,7 +17,7 @@
                 @if ($pelicula->rented)
                     Película actualmente alquilada
                     <br>
-                    <form action="{{action([App\Http\Controllers\CatalogController::class, 'putReturn'], ['id' => $pelicula->id])}}" 
+                    <form action="{{action([App\Http\Controllers\CatalogController::class, 'putReturn'], ['id' => $pelicula->id])}}"
                         method="POST" style="display:inline">
                         @method('PUT')
                         @csrf
@@ -28,7 +28,7 @@
                 @else
                     Película disponible para alquilar
                     <br>
-                    <form action="{{action([App\Http\Controllers\CatalogController::class, 'putRent'], ['id' => $pelicula->id])}}" 
+                    <form action="{{action([App\Http\Controllers\CatalogController::class, 'putRent'], ['id' => $pelicula->id])}}"
                         method="POST" style="display:inline">
                         @method('PUT')
                         @csrf

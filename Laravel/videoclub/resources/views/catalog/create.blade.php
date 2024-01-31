@@ -8,7 +8,7 @@
                     Añadir película
                 </div>
                 <div class="card-body" style="padding:30px">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="title">Título</label>
@@ -26,7 +26,7 @@
 
                         <div class="form-group">
                             <label for="poster">Poster</label>
-                            <input type="file" accept="image/png, image/jpeg" class="form-control" id="poster" name="poster" required>
+                            <input type="text" class="form-control" id="poster" name="poster" required>
                         </div>
                         <div class="form-group">
                             <label for="synopsis">Resumen</label>

@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="row">
-
         @foreach ($arrayPeliculas as $pelicula)
             <div class="col-xs-6 col-sm-4 col-md-3 text-center">
 

@@ -25,7 +25,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 //     //return view('welcome');
 // });
 
-Route::get('catalog', [CatalogController::class, 'getIndex']);
 
 
 
@@ -33,6 +32,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('catalog', [CatalogController::class, 'getIndex']);
     Route::get('catalog/show/{id}', [CatalogController::class, 'getShow']);
     Route::get('catalog/create', [CatalogController::class, 'getCreate']);
     Route::post('catalog/create', [CatalogController::class, 'postCreate']);
